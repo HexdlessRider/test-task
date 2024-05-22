@@ -1,7 +1,8 @@
 {
   "name": "react-test",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://hexdlessrider.github.io/test-task",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@tailwindcss/postcss7-compat": "^2.2.17",
