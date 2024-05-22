@@ -3,12 +3,15 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import MainPages from "./components/MainPage";
 import "./index.css";
+import { HashRouter } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <MainPages />
-    </Provider>
+    <HashRouter>
+      <Provider store={store}>
+        <MainPages />
+      </Provider>
+    </HashRouter>
   );
 };
 
