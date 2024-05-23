@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedOption } from "../store/actions/selectOption";
-import { State } from "../store/reducer/reducer";
+import { addNote, selectOption } from "../store/reducer/reducer";
+import { RootState } from "../store/store";
 
 const radioOptions: { label: string; key: string }[] = [
   {
@@ -18,14 +18,11 @@ const radioOptions: { label: string; key: string }[] = [
   },
 ];
 const RadioButtons: React.FC = () => {
-  const selected = useSelector<State, State["selectedOption"]>(
-    (state) => state.selectedOption
-  );
-
+  const selected = useSelector((state: RootState) => state.main.selectedOption);
   const dispatch = useDispatch();
 
-  const selectOption = (option: string) => {
-    dispatch(selectedOption(option));
+  const chooseOption = (option: string) => {
+    dispatch(selectOption(option));
   };
 
   return (
@@ -44,7 +41,7 @@ const RadioButtons: React.FC = () => {
             name={item.key}
             id={item.key}
             checked={selected === item.key}
-            onChange={() => selectOption(item.key)}
+            onChange={() => chooseOption(item.key)}
           />
           <label
             className="mt-px inline-block pl-[0.15rem] hover:cursor-pointer"

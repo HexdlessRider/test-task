@@ -1,13 +1,13 @@
-import { addNote } from "../store/actions/noteAction";
-import { State } from "../store/reducer/reducer";
+import { addNote } from "../store/reducer/reducer";
 import NewNoteInput from "./NewNoteInput";
 import { useSelector, useDispatch } from "react-redux";
 import RadioButtons from "./RadioButtons";
 import DiscountCodeEntry from "./DiscountCodeEntry";
 import DiscountCodeGenerator from "./GenerateNewCode";
+import { RootState } from "../store/store";
 
 const MainPages: React.FC = () => {
-  const notes = useSelector<State, State["notes"]>((state) => state.notes);
+  const notes = useSelector((state: RootState) => state.main.notes);
   const dispatch = useDispatch();
 
   const onAddNote = (note: string) => {
@@ -15,7 +15,7 @@ const MainPages: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <RadioButtons />
       <DiscountCodeEntry />
       <DiscountCodeGenerator />

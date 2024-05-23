@@ -10,9 +10,6 @@ const DiscountCodeGenerator: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-gray-100 p-4 sm:p-0">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-center mb-4">
-        Generate new discount code
-      </h1>
       <button
         type="button"
         onClick={generateDiscountCode}
